@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: env
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: ${DB_USERNAME}
+    url: ${DB_URL}
+    password: ${DB_PASSWORD}
+#    hikari:
+#      maximum-pool-size: 10 #?? pool ??
+#      minimum-idle: 1 #?? pool ??
+#      idle-timeout: 600000 #???? ?? ?? ??
+#      max-lifetime: 1800000 #??? ???? ?? ??
+  jackson:
+    serialization:
+      fail-on-empty-beans: 'false'
+
+server:
+  port: 8081
+  servlet:
+    encoding:
+      force-response: true
