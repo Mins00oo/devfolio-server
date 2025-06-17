@@ -1,19 +1,21 @@
 spring:
+  devtools:
+    restart:
+      enabled: false
   profiles:
     active: env
   datasource:
-    driver-class-name: oracle.jdbc.OracleDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${DB_USERNAME}
     url: ${DB_URL}
     password: ${DB_PASSWORD}
-#    hikari:
-#      maximum-pool-size: 10 #?? pool ??
-#      minimum-idle: 1 #?? pool ??
-#      idle-timeout: 600000 #???? ?? ?? ??
-#      max-lifetime: 1800000 #??? ???? ?? ??
-  jackson:
-    serialization:
-      fail-on-empty-beans: 'false'
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
 server:
   port: 8081
