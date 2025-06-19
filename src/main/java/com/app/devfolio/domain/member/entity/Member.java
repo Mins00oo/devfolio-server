@@ -1,10 +1,7 @@
 package com.app.devfolio.domain.member.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -24,6 +21,13 @@ public class Member {
 
     @Column(name = "member_phone")
     private String phone;
+
+    @Builder
+    public Member(String name, String email, String phone) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
 
 
 }
